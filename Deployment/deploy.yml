@@ -12,5 +12,11 @@
       service: 
         name: docker
         state: started
+    - name: Remove container if it exists
+      shell:
+        cmd: |
+          if [ "$(docker ps -a -q -f name=calc_container)" ]; then
+            docker rm calc_container
+          fi
     - name: Create container
       shell: docker create --name calc_container rishi2o2o/calculator:latest
