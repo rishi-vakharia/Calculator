@@ -1,0 +1,17 @@
+---
+- name: Pull image from Docker Hub and deploy on hosts
+  hosts: all
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Pull image from docker hub
+      docker_image:
+        name: rishi2o2o/calculator:latest
+        source: pull
+    - name: Start docker service
+      service: 
+        name: docker
+        state: started
+    - name: Running containers on hosts
+      shell: docker create --name calc_container rishi2o2o/calculator:latest
+---
