@@ -1,6 +1,6 @@
 ---
-- name: Pull image from Docker Hub and deploy on hosts
-  hosts: all
+- name: Pull image from Docker Hub and deploy
+  hosts: localhost
   vars: 
     ansible_python_interpreter: /usr/bin/python3
   tasks:
@@ -12,5 +12,5 @@
       service: 
         name: docker
         state: started
-    - name: Running containers on hosts
+    - name: Create container
       shell: docker create --name calc_container rishi2o2o/calculator:latest

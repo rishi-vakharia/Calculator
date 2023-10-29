@@ -1,1 +1,1 @@
-localhost ansible_user=rishi
+localhost ansible_user=jenkins
