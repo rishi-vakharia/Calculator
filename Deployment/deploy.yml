@@ -14,4 +14,3 @@
         state: started
     - name: Running containers on hosts
       shell: docker create --name calc_container rishi2o2o/calculator:latest
----
