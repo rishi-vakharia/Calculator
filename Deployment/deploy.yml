@@ -19,4 +19,4 @@
             docker rm calc_container
           fi
     - name: Create container
-      shell: docker create --name calc_container rishi2o2o/calculator:latest
+      shell: docker create -i -t --name calc_container rishi2o2o/calculator:latest
