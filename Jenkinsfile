@@ -42,7 +42,7 @@ pipeline {
                 ansiblePlaybook installation: 'Ansible',
                 playbook: 'Deployment/deploy.yml',
                 inventory: 'Deployment/inventory',
-                credentialsId: 'LocalhostUserCredentials',
+                credentialsId: 'LocalhostUserCredentials'
             }
         }
     }
