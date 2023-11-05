@@ -43,8 +43,6 @@ pipeline {
                 playbook: 'Deployment/deploy.yml',
                 inventory: 'Deployment/inventory',
                 credentialsId: 'LocalhostUserCredentials',
-                become: true,
-                extras: '-e "ansible_become_pass=rishi"'
             }
         }
     }
