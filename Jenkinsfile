@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Stage 6: Pull image from Docker Hub and deploy on hosts using Ansible') {
             steps {
-                ansiblePlaybook become: true, credentialsId: 'LocalhostUserCredentials', installation: 'Ansible', inventory: 'Deployment/inventory', playbook: 'Deployment/deploy.yml', vaultTmpPath: ''
+                ansiblePlaybook credentialsId: 'LocalhostUserCredentials', installation: 'Ansible', inventory: 'Deployment/inventory', playbook: 'Deployment/deploy.yml', vaultTmpPath: ''
             }
         }
     }
