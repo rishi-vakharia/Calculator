@@ -44,7 +44,7 @@ pipeline {
                 inventory: 'Deployment/inventory',
                 credentialsId: 'LocalhostUserCredentials',
                 become: true,
-                becomePassword: rishi
+                extras: '-e "ansible_become_pass=rishi"'
             }
         }
     }
