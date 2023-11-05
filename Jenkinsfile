@@ -44,7 +44,7 @@ pipeline {
                 inventory: 'Deployment/inventory',
                 credentialsId: 'LocalhostUserCredentials',
                 become: true,
-                vaultCredentialsId: 'VaultPassword'
+                becomePassword: rishi
             }
         }
     }
