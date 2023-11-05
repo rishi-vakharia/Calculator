@@ -1,5 +1,5 @@
 ---
-- name: Pull image from Docker Hub and deploy
+- name: On target machines, Pull image from Docker Hub and create a container
   hosts: all
   vars: 
     ansible_python_interpreter: /usr/bin/python3
@@ -12,11 +12,11 @@
       service: 
         name: docker
         state: started
-    - name: Remove container if it exists
+    - name: Remove container from target machine if it exists already
       shell:
         cmd: |
           if [ "$(docker ps -a -q -f name=calc_container)" ]; then
             docker rm calc_container
           fi
-    - name: Create container
+    - name: Finally, create container on target machine
       shell: docker create -i -t --name calc_container rishi2o2o/calculator:latest
