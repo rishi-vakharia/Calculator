@@ -1,5 +1,5 @@
 ---
-- name: On target machines, Pull image from Docker Hub and create a container
+- name: On target machines, pull image from Docker Hub and create a container
   hosts: all
   vars: 
     ansible_python_interpreter: /usr/bin/python3
