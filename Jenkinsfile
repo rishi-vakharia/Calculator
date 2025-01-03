@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Stage 1: Pull code from Github') {
             steps {
-                git branch: 'main', url: 'https://github.com/rishi2o2o/Calculator.git'
+                git branch: 'main', url: 'https://github.com/rishi2o2o/DevOpsMiniProject.git'
             }
         }
         stage('Stage 2: Build jar file using Maven') {
@@ -17,7 +17,7 @@ pipeline {
         stage('Stage 3: Build a docker image from the Dockerfile') {
             steps {
                 script {
-                    docker_image = docker.build "rishi2o2o/calculator:latest"
+                    docker_image = docker.build "rishi2o2o/DevOpsMiniProject:latest"
                 }
             }
         }
@@ -40,8 +40,8 @@ pipeline {
         stage('Stage 6: Pull image from Docker Hub and deploy on hosts using Ansible') {
             steps {
                 ansiblePlaybook installation: 'Ansible',
-                playbook: 'Deployment/deploy.yml',
-                inventory: 'Deployment/inventory',
+                playbook: 'deployment/deploy.yml',
+                inventory: 'deployment/inventory',
                 credentialsId: 'LocalhostUserCredentials'
             }
         }
