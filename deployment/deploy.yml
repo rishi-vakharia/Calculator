@@ -6,7 +6,7 @@
   tasks:
     - name: Pull image from docker hub
       docker_image:
-        name: rishi2o2o/calculator:latest
+        name: rishi2o2o/DevOpsMiniProject:latest
         source: pull
     - name: Start docker service
       service: 
@@ -19,4 +19,4 @@
             docker rm calc_container
           fi
     - name: Finally, create container on target machine
-      shell: docker create -i -t --name calc_container rishi2o2o/calculator:latest
+      shell: docker create -i -t --name calc_container rishi2o2o/DevOpsMiniProject:latest
